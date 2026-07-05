@@ -26,3 +26,9 @@ The author wires CHIRON into a broader discipline stack (HORKOS audits actions, 
 - `chiron check` any time: health, duplicates, contradictions, drift.
 - `chiron promote` when a rule proves itself across projects.
 - Retire with `chiron archive <id>`; nothing is ever deleted, `chiron restore` brings rules back.
+
+<!-- chiron:begin (managed by CHIRON, do not edit inside) -->
+## Rules learned from corrections (CHIRON)
+
+- **CHI-R001:** When writing a banned-character lint, spell the banned characters as backslash-u escape sequences in the lint source so it never matches itself
+<!-- chiron:end -->

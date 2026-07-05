@@ -1,4 +1,5 @@
 node_modules/
+.chiron/
 *.log
 .DS_Store
 desktop.ini
