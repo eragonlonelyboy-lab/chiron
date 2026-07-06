@@ -6,6 +6,8 @@
 
 *You corrected your AI agent Tuesday. It forgot by Thursday. I make the correction stick, in Claude Code, Cursor, and every agent at once.*
 
+**The self-improving loop for AI agents. Correct once, never twice.**
+
 ![license](https://img.shields.io/badge/license-MIT-E8A23D)
 ![node](https://img.shields.io/badge/node-%E2%89%A518-2C7A7B)
 ![benchmarks](https://img.shields.io/badge/benchmarks-35%2F35-E8A23D)
