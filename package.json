@@ -4,10 +4,11 @@
   "description": "Your agent makes the same mistake every session. CHIRON makes it make each mistake exactly once.",
   "bin": { "chiron": "bin/chiron.js" },
   "scripts": {
+    "test": "node benchmarks/run.js",
     "bench": "node benchmarks/run.js"
   },
   "engines": { "node": ">=18" },
   "keywords": ["claude-code", "agents", "rules", "self-improvement", "corrections", "memory", "cross-agent"],
-  "author": "Eragon",
+  "author": "Eragon Lee (Demiurge)",
   "license": "MIT"
 }
