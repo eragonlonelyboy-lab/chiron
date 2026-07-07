@@ -48,6 +48,8 @@ const commands = {
       mistake: arg('--mistake', ''),
       rule: arg('--rule', ''),
       apply: arg('--how', ''),
+      detail: arg('--detail', ''),
+      type: arg('--type', 'correction') === 'gotcha' ? 'gotcha' : 'correction',
       source: arg('--source', 'manual'),
       projects: [path.basename(root)],
       occurrences: 1,
@@ -91,7 +93,7 @@ const commands = {
   list() {
     const rules = ledger.load(ledgerPathFor());
     if (!rules.length) { out('ledger empty. capture with "chiron add" or sweep history with "chiron mine".'); return; }
-    for (const r of rules) out(`${r.id} [${r.status}] (${r.occurrences}x) ${r.rule}`);
+    for (const r of rules) out(`${r.id} [${r.status}${r.type === 'gotcha' ? '/gotcha' : ''}] (${r.occurrences}x)${r.detail ? ' +detail' : ''} ${r.rule}`);
   },
 
   compile() {
@@ -219,7 +221,7 @@ make becomes a permanent rule, compiled into every agent's memory.
 usage: chiron <command> [flags]
 
   init                       create the project ledger (.chiron/ledger.md)
-  add --rule "..."           capture a rule (--mistake, --how, --source; dedup + contradiction gated)
+  add --rule "..."           capture a rule (--mistake, --how, --detail, --type gotcha, --source; dedup + contradiction gated)
   bump <id>                  same lesson happened again: count it
   list                       show the ledger
   compile [--apply]          project rules into CLAUDE.md / AGENTS.md / .cursor / .windsurf (dry-run default)

@@ -1,6 +1,6 @@
 {
   "name": "demiurge-chiron",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Your agent makes the same mistake every session. CHIRON makes it make each mistake exactly once.",
   "bin": { "chiron": "bin/chiron.js" },
   "scripts": {

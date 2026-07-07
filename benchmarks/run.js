@@ -231,5 +231,33 @@ function rule(id, text, extra = {}) {
   check('copy lint: zero em/en dashes repo-wide', offenders.length === 0, offenders.join(', '));
 })();
 
+// --- 11. Detail + type: rich journal field, gotchas excluded from compile --------
+(() => {
+  const d = tmpDir('detail');
+  const p = path.join(d, '.chiron', 'ledger.md');
+  const multiDetail = 'Failure: the parser dropped rows.\n- cause: CRLF vs LF mismatch\n- fix: normalize both sides before compare\nSecond paragraph of the note.';
+  const rules = [
+    rule('CHI-R001', 'Normalize line endings before comparing', { detail: multiDetail, type: 'gotcha' }),
+    rule('CHI-R002', 'Re-fetch before every full-page overwrite', { type: 'correction' }),
+    rule('CHI-R003', 'Old style rule with no detail or type field'),
+  ];
+  ledger.save(p, rules);
+  const back = ledger.load(p);
+  check('detail: multi-line detail round-trips exactly', back[0].detail === multiDetail, JSON.stringify(back[0].detail));
+  check('detail: bullet lines inside detail preserved', back[0].detail.includes('- cause: CRLF vs LF mismatch'));
+  check('detail: type persists', back[0].type === 'gotcha' && back[1].type === 'correction');
+  check('detail: missing type defaults to correction (backward compat)', back[2].type === 'correction');
+  check('detail: missing detail is empty (backward compat)', back[2].detail === '');
+  // a heading line inside detail must not split into a phantom rule block
+  ledger.save(p, [rule('CHI-R001', 'x', { detail: '## not a heading\nline two', type: 'gotcha' })]);
+  check('detail: heading marker in detail does not create phantom rule', ledger.load(p).length === 1);
+  // compile keeps gotchas in the ledger journal, out of agent files
+  fs.writeFileSync(path.join(d, 'CLAUDE.md'), '# proj\n', 'utf8');
+  compiler.compile(d, back, { apply: true });
+  const cc = fs.readFileSync(path.join(d, 'CLAUDE.md'), 'utf8');
+  check('detail: gotcha excluded from compiled agent file', !cc.includes('CHI-R001'));
+  check('detail: corrections included in compiled agent file', cc.includes('CHI-R002') && cc.includes('CHI-R003'));
+})();
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

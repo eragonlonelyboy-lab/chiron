@@ -24,10 +24,14 @@ The cycle: **correction → rule → permanent recall.**
    - **Rule:** the instruction that would have prevented it (imperative)
    - **Apply:** how to follow it in practice (the check, the command, the habit)
    Bad rule: "be more careful with files." Good rule: "Validate canvas JSON with a parser after every write; unescaped quotes break Obsidian."
+   Two optional fields carry the richer context a one-line rule cannot:
+   - **Detail** (`--detail`): a multi-line technical note (the failure scenario, code specifics, the fix). This is what a running lessons journal holds; put it here instead of losing it.
+   - **type** (`--type gotcha`): mark a technical discovery you hit yourself (not a user correction) as a `gotcha`. Corrections (the default) compile into every agent file; `gotcha` entries stay in the ledger as the searchable technical journal and never bloat the agent files. Use `gotcha` for API quirks, environment traps, and hard-won findings; use the default for behavioral rules the agent must obey.
 3. **Gate it through the CLI** (dedup + contradiction checks are deterministic, let them run):
    ```
-   chiron add --mistake "..." --rule "..." --how "..." --source "session YYYY-MM-DD"
+   chiron add --mistake "..." --rule "..." --how "..." --detail "..." --type gotcha --source "session YYYY-MM-DD"
    ```
+   (`--detail` and `--type` are optional; omit them for a plain behavioral correction.)
    - **Exit 2 (duplicate):** the CLI names the existing rule. Bump it instead: `chiron bump <id>`. A repeated lesson is a signal, not a new rule.
    - **Exit 3 (contradiction):** the CLI names the conflicting rule. NEVER pick a winner yourself. Show the user both rules and ask which stands; archive the loser with `chiron archive <id> --reason "superseded by <new>"`.
 4. **Compile:** `chiron compile --apply` so every agent file gets the rule now, not someday.
