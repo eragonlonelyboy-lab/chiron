@@ -69,7 +69,7 @@ A lesson that lives in one editor is a lesson you get to teach again in the next
 4. **Govern.** Duplicates surfaced, contradictions ASKED (never auto-resolved), cross-project rules proposed for your global ledger, health score 0 to 100.
 5. **Archive, never delete.** Retired rules get a dated archive and an append-only changelog; `chiron restore` brings any rule back, forever.
 
-Optional live hook (ships dormant): the moment you type a correction, the agent gets a one-line nudge to capture it.
+Optional live hook (ships dormant): a one-line nudge to capture a rule the moment you type a correction, or the moment HORKOS (if installed) catches a false-completion this session.
 
 ## Install for your agent
 
