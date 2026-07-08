@@ -18,7 +18,7 @@ The cycle: **correction → rule → permanent recall.**
 
 ## Mode A: Capture
 
-1. **Identify the correction, then verify the diagnosis before distilling.** What did the agent do, and what did the user actually want? If it is ambiguous which of two things was the mistake, ask one short question — never guess. Then investigate *why* it happened and confirm the real cause before harvesting a rule: a rule distilled from a misdiagnosed or surface-level correction is worse than none, because it becomes permanent. Correction → **verified cause** → rule.
+1. **Identify the correction, then verify the diagnosis before distilling.** What did the agent do, and what did the user actually want? If it is ambiguous which of two things was the mistake, ask one short question, never guess. Then investigate *why* it happened and confirm the real cause before harvesting a rule: a rule distilled from a misdiagnosed or surface-level correction is worse than none, because it becomes permanent. Correction → **verified cause** → rule.
 2. **Distill it into the rule format.** Three parts, each one sentence, durable and general enough to prevent the CLASS of mistake, specific enough to be actionable:
    - **Mistake:** what went wrong (past tense, factual)
    - **Rule:** the instruction that would have prevented it (imperative)

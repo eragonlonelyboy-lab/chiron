@@ -63,7 +63,7 @@ A lesson that lives in one editor is a lesson you get to teach again in the next
 
 ## How it works
 
-1. **Capture.** A correction becomes a three-line rule (Mistake / Rule / Apply) — but only once its cause is verified, never from a first-guess diagnosis, because a rule outlives the mistake that spawned it; a repeated lesson bumps a counter instead of duplicating. Attach a multi-line `--detail` note for the full technical story, and tag a discovery you hit yourself (not a user correction) with `--type gotcha`.
+1. **Capture.** A correction becomes a three-line rule (Mistake / Rule / Apply), but only once its cause is verified, never from a first-guess diagnosis, because a rule outlives the mistake that spawned it; a repeated lesson bumps a counter instead of duplicating. Attach a multi-line `--detail` note for the full technical story, and tag a discovery you hit yourself (not a user correction) with `--type gotcha`.
 2. **Compile.** Active corrections land inside managed markers in CLAUDE.md, AGENTS.md, `.cursor/rules/*.mdc`, and Windsurf rules. Your own content is never touched; dry-run by default. `gotcha` entries stay in the ledger as a searchable, deduped, git-diffable technical journal (the role a hand-kept lessons file used to fill) and never bloat the agent files.
 3. **Mine.** `chiron mine` sweeps your past Claude Code and Codex transcripts for corrections you never captured. Read-only, zero LLM.
 4. **Govern.** Duplicates surfaced, contradictions ASKED (never auto-resolved), cross-project rules proposed for your global ledger, health score 0 to 100.
@@ -164,6 +164,9 @@ CHIRON is a [Demiurge](https://github.com/eragonlonelyboy-lab/demiurge) product.
 | **ATHENA** | Decision trials with verdicts on the record |
 | **CALLIOPE** | A full design agency in the terminal, gated by a QA lead who does not accept "looks fine" |
 | **MAAT** | Multi-agent attention terminal: receipts across every session |
+| **ZOILUS** | The merciless critic: a rejection-class it names once becomes a CHIRON rule |
+| **PEITHO** | Go-to-market: positioning, angles and offers that refuse to sound generic |
+| **PYRRHO** | The skeptic: suspends judgment until the data earns it |
 
 **Pair CHIRON with [HORKOS](../horkos).** HORKOS catches the failure this time; CHIRON makes sure there is no next time. He audits the action NOW; I learn from the correction FOREVER. The mistake he catches once, I make sure never happens again.
 
