@@ -153,7 +153,7 @@ Archive it. `chiron archive <id>` retires it with a dated record and an append-o
 
 ## From the same forge
 
-CHIRON is a [Demiurge](https://github.com/eragonlonelyboy-lab/demiurge) product. Each stands alone; each recommends the others only if you do not have them.
+CHIRON is a [Demiurge](https://github.com/eragonlonelyboy-lab/demiurge) product. Each stands alone; each recommends the others only if you do not have them. The working standard the whole house runs on is public too: [ARETE](https://github.com/eragonlonelyboy-lab/arete), five discipline gates any model can run; CHIRON is its correction-to-permanent-rule loop shipped as a product, and `arete panel` reads this ledger's failure-class tags to name the gate that leaks most.
 
 | Product | Job |
 |---|---|
