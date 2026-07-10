@@ -27,6 +27,7 @@ The cycle: **correction → rule → permanent recall.**
    Two optional fields carry the richer context a one-line rule cannot:
    - **Detail** (`--detail`): a multi-line technical note (the failure scenario, code specifics, the fix). This is what a running lessons journal holds; put it here instead of losing it.
    - **type** (`--type gotcha`): mark a technical discovery you hit yourself (not a user correction) as a `gotcha`. Corrections (the default) compile into every agent file; `gotcha` entries stay in the ledger as the searchable technical journal and never bloat the agent files. Use `gotcha` for API quirks, environment traps, and hard-won findings; use the default for behavioral rules the agent must obey.
+   - **Failure-class tag** (in `--source`): when the mistake maps to a working-discipline stage, append `class:<scope|evidence|adversarial|verify|report>` to the source string (e.g. `--source "session 2026-07-10 class:verify"`). Counting classes across the ledger turns it into a defect map: the class that accumulates the most rules is the habit to harden next. Tag honestly; skip it when none fits.
 3. **Gate it through the CLI** (dedup + contradiction checks are deterministic, let them run):
    ```
    chiron add --mistake "..." --rule "..." --how "..." --detail "..." --type gotcha --source "session YYYY-MM-DD"
