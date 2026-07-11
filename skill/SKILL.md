@@ -51,6 +51,13 @@ Scan the current session for moments the user corrected you. For each one not ye
 
 ## Laws (non-negotiable)
 
+### Project-earned rules and vindicated dissent
+
+- A project template may carry `[RESEED]` rules, but the marker stays until a real incident from that project supplies positive and negative evidence.
+- A rejected or parked reviewer finding is not a correction yet. Store it as dissent linked to the decision and its tripwires, not as an active rule.
+- When a tripwire fires or later evidence vindicates the finding, resurface it for review. Do not silently activate it and do not erase the original rejection reason.
+- Compile only confirmed corrections into agent instructions. Agreement between multiple models is not confirmation.
+
 - **The CLI gates every write.** Never write to the ledger file directly; `chiron add` runs the dedup and contradiction checks you cannot do reliably by eye.
 - **Contradictions are asked, never picked.** CHIRON's trust model is the user's memory stays the user's.
 - **Archive, never delete.** Retiring a rule goes through `chiron archive`; it is restorable forever.

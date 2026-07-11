@@ -49,7 +49,7 @@ const commands = {
       rule: arg('--rule', ''),
       apply: arg('--how', ''),
       detail: arg('--detail', ''),
-      type: arg('--type', 'correction') === 'gotcha' ? 'gotcha' : 'correction',
+      type: ['gotcha', 'dissent'].includes(arg('--type', 'correction')) ? arg('--type', 'correction') : 'correction',
       source: arg('--source', 'manual'),
       projects: [path.basename(root)],
       occurrences: 1,

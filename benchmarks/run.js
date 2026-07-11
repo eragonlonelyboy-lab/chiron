@@ -259,5 +259,16 @@ function rule(id, text, extra = {}) {
   check('detail: corrections included in compiled agent file', cc.includes('CHI-R002') && cc.includes('CHI-R003'));
 })();
 
+// --- 12. Parked dissent can be vindicated without becoming policy ---------------
+(() => {
+  const dissent = rule('CHI-R090', 'Payment settlement may fail when royalty rounding uses floating point', { type: 'dissent' });
+  dissent.status = 'parked';
+  dissent.source = 'rejected review round 2';
+  const hits = governance.resurfaceDissent([dissent], 'Incident: payment settlement failed because royalty rounding used floating point');
+  check('dissent: later matching incident resurfaces parked finding', hits.length === 1 && hits[0].id === 'CHI-R090');
+  check('dissent: resurfacing never auto-changes policy', hits[0].action.includes('do not auto-change policy'));
+  check('dissent: unrelated incident stays quiet', governance.resurfaceDissent([dissent], 'CSS button color changed').length === 0);
+})();
+
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);
