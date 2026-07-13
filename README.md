@@ -73,6 +73,8 @@ Optional live hook (ships dormant): a one-line nudge to capture a rule the momen
 
 ## Install for your agent
 
+> **From npm:** `npm install -g demiurge-chiron`, then `chiron init` and `chiron compile --apply` — or `npx demiurge-chiron init` with no install. (The capture skill still ships in the repo; clone to copy it.) Source build below.
+
 CHIRON compiles rules into the files each agent already reads at session start. Install the CLI once, then compile wherever you work.
 
 **Windows PowerShell:**
